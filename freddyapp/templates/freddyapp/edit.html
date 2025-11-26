@@ -1,0 +1,12 @@
+{% extends 'freddyapp/base.html' %}
+{% block title %}Edit animatronic{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <p>{{ form.name.label }}: {{ form.name }}{% if form.name.errors %}<br>{{ form.name.errors.0 }}{% endif %}</p>
+    <p>{{ form.animal.label }}: {{ form.animal }}{% if form.animal.errors %}<br>{{ form.animal.errors.0 }}{% endif %}</p>
+    <p>{{ form.build_date.label }}: {{ form.build_date }}{% if form.build_date.errors %}<br>{{ form.build_date.errors.0 }}{% endif %}</p>
+    <p>{{ form.decommissioned.label }}: {{ form.decommissioned }}{% if form.decommissioned.errors %}<br>{{ form.decommissioned.errors.0 }}{% endif %}</p>
+    <p><input type="submit" value="Send"></p>
+</form>
+{% endblock %}

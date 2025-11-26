@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>{% block title %}Freddy Fazbear's Pizza{% endblock %}</title>
+    {% if request.COOKIES.theme == 'dark' %}
+    <style>body { background-color: #333; color: white; }</style>
+    {% endif %}
+</head>
+<body>
+    <p>
+        <a href="{% url 'theme' %}">[Dark theme]</a>
+        <a href="{% url 'clearcookies' %}">[Light theme]</a>
+        {% if user.is_authenticated %}
+            Hi, {{ user.username }}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'newuser' %}">Register</a>
+            <a href="{% url 'login' %}">Log in</a>
+        {% endif %}
+    </p>
+    {% block content %}{% endblock %}
+</body>
+</html>
