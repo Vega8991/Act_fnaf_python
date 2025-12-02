@@ -7,7 +7,7 @@
     {% for animatronic in animatronics %}
     <li>
         {{ animatronic.name }} the {{ animatronic.get_animal_display }}
-        {% if user.is_authenticated and perms.freddyapp.view_animatronic %}[<a href="{% url 'animatronic_view' animatronic.id %}">View</a>]{% endif %}
+        {% if user.is_authenticated %}[<a href="{% url 'animatronic_view' animatronic.id %}">View</a>]{% endif %}
         {% if perms.freddyapp.change_animatronic %}[<a href="{% url 'animatronic_edit' animatronic.id %}">Edit</a>]{% endif %}
         {% if perms.freddyapp.delete_animatronic %}[<a href="{% url 'animatronic_delete' animatronic.id %}">Delete</a>]{% endif %}
     </li>

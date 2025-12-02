@@ -5,4 +5,14 @@
 <p>Animal type: {{ animatronic.get_animal_display }}</p>
 <p>Build date: {{ animatronic.build_date }}</p>
 <p>Decommissioned: {{ animatronic.decommissioned }}</p>
+<h2>Parties:</h2>
+{% if animatronic.parties.all %}
+<ul>
+    {% for party in animatronic.parties.all %}
+    <li>{{ party.name }} - Attendants: {{ party.attendants }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No parties registered for this animatronic.</p>
+{% endif %}
 {% endblock %}
