@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Animatronic, Party
+from .models import Animatronic
 
 
 class AnimatronicForm(forms.ModelForm):
@@ -25,16 +25,6 @@ class AnimatronicForm(forms.ModelForm):
             'build_date': {
                 'required': 'The build date is required',
             },
-        }
-
-
-class PartyForm(forms.ModelForm):
-    class Meta:
-        model = Party
-        fields = ['name', 'attendants']
-        labels = {
-            'name': 'Parties',
-            'attendants': 'Attendants',
         }
 
 
